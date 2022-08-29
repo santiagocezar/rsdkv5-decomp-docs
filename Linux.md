@@ -1,5 +1,9 @@
 # Compiling for Linux
 
+- [Compiling Flatpak](#compiling-flatpak)
+- [Compiling from git](#compiling-from-git)
+
+
 ## Compiling Flatpak
 
 For Steam Deck, Fedora Silverblue, etc.
@@ -30,15 +34,38 @@ flatpak install --reinstall ./repo io.github.santiagocezar.maniatic-launcher
 
 It'll be available as RSDKv5U in your application launcher.
 
-## Compiling from repository
+## Compiling from git
+
+### Install dependencies
+
+On Arch Linux:
+```sh
+sudo pacman -S --needed glew glfw libtheora zlib sdl2
+```
+
+On Ubuntu:
+```sh
+sudo apt install libglew-dev libglfw3-dev libtheora-dev zlib1g-dev libsdl2-dev
+```
+
+### Compile
 
 Clone the decompilation:
 ```sh
 git clone --recurse-submodules https://github.com/Rubberduckycooly/Sonic-Mania-Decompilation
+
 cd Sonic-Mania-Decompilation/dependencies/RSDKv5/
 ```
 
 Compile with `make`:
 ```sh
-make -j8 # replace 8 with the number of cores you have
+make -j$(nproc) # without mod support
+make -j$(nproc) RSDK_REVISION=3 # with mod support
 ```
+
+Copy the `Data.rsdk` into `bin/Linux/GL3/` and then run it with:
+```sh
+cd bin/Linux/GL3/
+./RSDKv5 # or ./RSDKv5U
+```
+
