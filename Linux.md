@@ -2,7 +2,7 @@
 
 - [Installing/Compiling Flatpak](#compiling-flatpak)
 - [Compiling from git](#compiling-from-git)
-- [Raspberry Pi](#compiling-from-git)
+- [Raspberry Pi](#raspberry-pi)
 
 
 ## Compiling Flatpak
@@ -91,3 +91,19 @@ cd bin/Linux/GL3/
 - `RSDK_REVISION=3`: Supports Origins and S1&2 for mobile. (executable is RSDKv5U)
 - `RSDK_ONLY=1`: Only build the engine (no Game.so)
 - `AUTOBUILD=1`: Disable the Plus DLC
+
+## Raspberry Pi
+
+_thanks to awefour44_
+
+> Note: If you're using Raspbian to compile from git you'll need version 11 or later, same as Debian. To compile the flatpak the version does not matter.
+
+The RPi doesn't support the OpenGL version used by the decomp. To work around this, run the decomp with these env variables:
+```sh
+MESA_GL_VERSION_OVERRIDE=3.3 MESA_GLSL_VERSION_OVERRIDE=330 ./RSDKv5
+```
+
+On Flatpak you can permanently set these variables using `flatpak override`:
+```sh
+flatpak override --env=MESA_GL_VERSION_OVERRIDE=3.3 --env=MESA_GLSL_VERSION_OVERRIDE=330  io.github.santiagocezar.maniatic-launcher
+```
