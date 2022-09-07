@@ -77,20 +77,14 @@ Compile with `make`:
 make -j$(nproc)
 ```
 
+See also: [Make options](make-opts.md#rsdk)
+
 Copy the `Data.rsdk` into `bin/Linux/GL3/` and then run it with:
 
 ```sh
 cd bin/Linux/GL3/
 ./RSDKv5 # or ./RSDKv5U
 ```
-
-### Make options
-
-- `RSDK_REVISION=1`: Only supports Mania
-- `RSDK_REVISION=2`: Supports Mania Plus
-- `RSDK_REVISION=3`: Supports Origins and S1&2 for mobile. (executable is RSDKv5U)
-- `RSDK_ONLY=1`: Only build the engine (no Game.so)
-- `AUTOBUILD=1`: Disable the Plus DLC
 
 ## Raspberry Pi
 
