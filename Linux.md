@@ -60,7 +60,7 @@ sudo apt install libglew-dev libglfw3-dev libtheora-dev zlib1g-dev libsdl2-dev
 
 On Fedora:
 ```sh
-sudo dnf install glew-devel glfw-devel libtheora-devel zlib-devel SDL2-devel g--
+sudo dnf install glew-devel glfw-devel libtheora-devel zlib-devel SDL2-devel g++
 ```
 
 ### Compile
